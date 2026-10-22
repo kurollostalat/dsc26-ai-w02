@@ -14,4 +14,4 @@ Before deploying the model, Rawaj Pay should compare its performance against the
 
 ## Classical ML or LLM
 
-<!-- Classical model, LLM, a rule, or a mix? Argue from the decision table in the session. -->
+A classical machine-learning model is a suitable starting point for mule detection because the data is structured and contains numerical and categorical transaction features. Models such as logistic regression and tree-based classifiers can provide useful risk scores for prioritizing investigations. An LLM is not necessary for the initial detection model, but it could support analysts later by summarizing investigation cases. The final approach should be evaluated against the existing rules and the client's operational requirements.

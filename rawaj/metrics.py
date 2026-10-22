@@ -10,6 +10,22 @@ Rules for every function:
 """
 from __future__ import annotations
 
+import math
+
+def _validate_inputs(y_true, scores):
+    y_true = list(y_true)
+    scores = list(scores)
+
+    if not y_true or not scores or len(y_true) != len(scores):
+        raise ValueError("Inputs must have the same non-zero length")
+
+    if any(label not in (0, 1) for label in y_true):
+        raise ValueError("Labels must be 0 or 1")
+
+    if any(math.isnan(float(score)) for score in scores):
+        raise ValueError("Scores must not contain NaN")
+
+    return y_true, scores
 
 def confusion_at(y_true, scores, threshold: float) -> dict:
     
